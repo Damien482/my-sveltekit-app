@@ -26,8 +26,8 @@
 	border: 1px solid rgba(255, 255, 255, 0.12);
 	border-left: 0;
 	border-right: 0;
-
-	padding: 3.5rem 0; /* vertical spacing */
+	padding: 3.5rem 0; 
+	
 	.hero-inner {
 	 padding: 2rem; 
 	}
