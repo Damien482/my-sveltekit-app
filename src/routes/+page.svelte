@@ -1,25 +1,35 @@
 <script lang="ts">
-
+	import { resolve } from '$app/paths';
 </script>
 
 <section class="hero">
-	<p class="eyebrow">Portfolio-in-progress</p>
-	<h1>DamPer.dev</h1>
-	<p class="lead">Learning by doing..and also studying at The OU</p>
+	<div class="container hero-inner">
+		<p class="eyebrow">Portfolio-in-progress</p>
+		<h1>DamPer.dev</h1>
+		<p class="lead">Learning by doing..and also studying at The OU</p>
 
-	<div class="actions">
-		<a class="btn primary" href="/projects">View projects</a>
-		<a class="btn" href="/about">About</a>
+		<div class="actions">
+			<a class="btn primary" href={resolve('/projects')}>View projects</a>
+			<a class="btn" href={resolve('/about')}>About</a>
+		</div>
 	</div>
 </section>
 
 <style>
+
+	.hero-inner {
+		transform: translateX(736px);	
+	}
 	.hero {
-		padding: 2.25rem;
-		border: 1px solid var(--border);
-		border-radius: var(--radius);
-		background: var(--panel);
-		box-shadow: var(--shadow);
+	/* if you want the grey band to still go full width */
+	background: rgba(255, 255, 255, 0.06);
+	border: 1px solid rgba(255, 255, 255, 0.12);
+	border-left: 0;
+	border-right: 0;
+
+	padding: 3.5rem 0; /* vertical spacing */
+	.hero-inner {
+	 padding: 2rem; 
 	}
 
 	.eyebrow {
@@ -64,4 +74,4 @@
 		border-color: transparent;
 		color: white;
 	}
-</style>
+}</style>

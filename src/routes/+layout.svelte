@@ -1,6 +1,7 @@
 <script lang="ts">
 	import favicon from '$lib/assets/favicon.svg';
 	import { page } from '$app/state';
+	import { resolve } from '$app/paths';
 
 	let { children } = $props();
 
@@ -9,7 +10,7 @@
 		{ href: '/about', label: 'About' },
 		{ href: '/projects', label: 'Projects' },
 		{ href: '/contact', label: 'Contact' }
-	];
+	] as const;
 
 	function isActive(href: string) {
 		const path = page.url.pathname;
@@ -25,20 +26,20 @@
 <div class="app">
 	<header class="header">
 		<div class="container header-inner">
-			<a class="brand" href="/">DamPer.dev</a>
+			<a class="brand" href={resolve("/")}>DamPer.dev</a>
 
-			<nav class="nav" aria-label="Primary">
-				{#each nav as item}
-					<a
-						class="nav-link"
-						class:active={isActive(item.href)}
-						aria-current={isActive(item.href) ? 'page' : undefined}
-						href={item.href}
-					>
-						<span class="nav-label">{item.label}</span>
-					</a>
-				{/each}
-			</nav>
+		<nav class="nav" aria-label="Primary">
+			{#each nav as item (item.href)}
+				<a
+					class="nav-link"
+					class:active={isActive(item.href)}
+					aria-current={isActive(item.href) ? 'page' : undefined}
+					href={resolve(item.href)}
+				>
+					<span class="nav-label">{item.label}</span>
+				</a>
+			{/each}
+		</nav>
 		</div>
 	</header>
 
