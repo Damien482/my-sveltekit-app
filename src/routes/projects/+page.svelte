@@ -65,11 +65,12 @@
 		max-width: 60ch;
 	}
 
-    .projects-column {
-	max-width: 720px;
-	margin: 0 auto;
-	transform: translateX(clamp(-2rem, -4vw, 0rem));
-    }
+  	.projects-column {
+		max-width: 720px;
+		margin: 0 auto;
+		padding: 0 1rem; /* keeps content away from edges on mobile */
+		/* transform: translateX(clamp(-2rem, -4vw, 0rem)); */
+	}
 
     .list {
 	display: flex;
