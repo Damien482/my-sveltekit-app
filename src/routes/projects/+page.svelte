@@ -84,6 +84,7 @@
 		border-radius: 16px;
 		padding: 1.25rem;
         width: 100%;
+		box-sizing: border-box;
 	}
 
 	.card-top {
