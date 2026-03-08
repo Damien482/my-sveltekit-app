@@ -2,58 +2,70 @@
 	import { resolve } from '$app/paths';
 </script>
 
-<section class="hero">
-	<div class="container hero-inner">
-		<p class="eyebrow">Portfolio-in-progress</p>
-		<h1>DamPer.dev</h1>
-		<p class="lead">Learning by doing..and also studying at The OU</p>
+<section class="page">
+	<div class="homepage-column">
+		<header class="home-header">
+			<h1>DamPer.dev</h1>
+			<p class="lead">Learning by doing..and also studying at The OU</p>
+		</header>
 
-		<div class="actions">
-			<a class="btn primary" href={resolve('/projects')}>View projects</a>
-			<a class="btn" href={resolve('/about')}>About</a>
+		<div class="list">
+			<article class="card">
+				<div class="card-top">
+					<a class="btn primary" href={resolve('/projects')}>View projects</a>
+					<a class="btn" href={resolve('/contact')}>Contact</a>
+				</div>
+			</article>
 		</div>
 	</div>
 </section>
 
 <style>
-
-	.hero-inner {
-		transform: translateX(736px);	
-	}
-	.hero {
-	/* if you want the grey band to still go full width */
-	background: rgba(255, 255, 255, 0.06);
-	border: 1px solid rgba(255, 255, 255, 0.12);
-	border-left: 0;
-	border-right: 0;
-	padding: 3.5rem 0; 
-	
-	.hero-inner {
-	 padding: 2rem; 
+	.page {
+		padding: 2.5rem 0 3.5rem;
 	}
 
-	.eyebrow {
-		margin: 0 0 0.75rem;
-		color: var(--muted);
-		letter-spacing: 0.12em;
-		text-transform: uppercase;
-		font-size: 0.8rem;
+	.homepage-column {
+		max-width: 720px;
+		margin: 0 auto;
+		transform: translateX(clamp(-2rem, -4vw, 0rem));
+		padding: 2rem;
+	}
+
+	.home-header {
+		margin-bottom: 1.75rem;
 	}
 
 	h1 {
-		margin: 0 0 0.75rem;
+		margin: 0 0 0.5rem;
 		font-size: clamp(2rem, 4vw, 3rem);
 		line-height: 1.1;
 	}
 
 	.lead {
-		margin: 0 0 1.5rem;
+		margin: 0;
 		color: var(--muted);
-		max-width: 65ch;
+		max-width: 60ch;
 	}
 
-	.actions {
+	.list {
 		display: flex;
+		flex-direction: column;
+		gap: 1rem;
+	}
+
+	.card {
+		background: rgba(255, 255, 255, 0.06);
+		border: 1px solid rgba(255, 255, 255, 0.12);
+		border-radius: 16px;
+		padding: 1.25rem;
+		width: 100%;
+	}
+
+	.card-top {
+		display: flex;
+		align-items: center;
+		justify-content: flex-start;
 		gap: 0.75rem;
 		flex-wrap: wrap;
 	}
@@ -74,4 +86,4 @@
 		border-color: transparent;
 		color: white;
 	}
-}</style>
+</style>
