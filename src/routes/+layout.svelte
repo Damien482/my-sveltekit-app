@@ -119,6 +119,7 @@
 		text-decoration: none;
 		font-weight: 700;
 		letter-spacing: 0.2px;
+		color: grey;
 	}
 
 	.nav {

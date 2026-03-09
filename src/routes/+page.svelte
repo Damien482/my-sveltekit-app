@@ -5,7 +5,7 @@
 <section class="page">
 	<div class="homepage-column">
 		<header class="home-header">
-			<h1>DamPer.dev</h1>
+			<h1>//:DamPer.dev</h1>
 			<p class="lead">Learning by doing..and also studying at The OU</p>
 		</header>
 
@@ -22,14 +22,14 @@
 
 <style>
 	.page {
-		padding: 2.5rem 0 3.5rem;
+		padding: 1.5rem 0 3.5rem;
 	}
 
 	.homepage-column {
 		max-width: 720px;
 		margin: 0 auto;
 		transform: translateX(clamp(-2rem, -4vw, 0rem));
-		padding: 2rem;
+		padding: 0;
 	}
 
 	.home-header {
@@ -65,7 +65,7 @@
 		display: flex;
 		align-items: center;
 		justify-content: flex-start;
-		gap: 0.75rem;
+		gap: 1rem;
 		flex-wrap: wrap;
 	}
 
@@ -81,8 +81,6 @@
 	}
 
 	.btn.primary {
-		background: var(--accent);
-		border-color: transparent;
 		color: white;
 	}
 </style>
