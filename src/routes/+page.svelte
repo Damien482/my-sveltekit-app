@@ -40,11 +40,12 @@
 		margin: 0 0 0.5rem;
 		font-size: clamp(2rem, 4vw, 3rem);
 		line-height: 1.1;
+		color: rgb(65, 63, 63);
 	}
 
 	.lead {
 		margin: 0;
-		color: var(--muted);
+		color: rgb(126, 123, 123);
 		max-width: 60ch;
 	}
 
@@ -55,8 +56,6 @@
 	}
 
 	.card {
-		background: rgba(255, 255, 255, 0.06);
-		border: 1px solid rgba(255, 255, 255, 0.12);
 		border-radius: 16px;
 		padding: 1.25rem;
 		width: 100%;

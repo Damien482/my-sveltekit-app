@@ -6,10 +6,10 @@
 	let { children } = $props();
 
 	const nav = [
-		{ href: '/', label: 'Home' },
-		{ href: '/projects', label: 'Projects' },
-		{ href: '/hobbies', label: 'Hobbies' },
-		{ href: '/contact', label: 'Contact' }
+		{ href: '/', label: 'Home', codeLabel: 'home' },
+		{ href: '/projects', label: 'Projects', codeLabel: 'projects' },
+		{ href: '/hobbies', label: 'Hobbies', codeLabel: 'hobbies' },
+		{ href: '/contact', label: 'Contact', codeLabel: 'contact' }
 	] as const;
 
 	function isActive(href: string) {
@@ -26,20 +26,22 @@
 <div class="app">
 	<header class="header">
 		<div class="container header-inner">
-			<a class="brand" href={resolve("/")}>DamPer.dev</a>
+			<a class="brand" href={resolve('/')}>DamPer.dev</a>
 
-		<nav class="nav" aria-label="Primary">
-			{#each nav as item (item.href)}
-				<a
-					class="nav-link"
-					class:active={isActive(item.href)}
-					aria-current={isActive(item.href) ? 'page' : undefined}
-					href={resolve(item.href)}
-				>
-					<span class="nav-label">{item.label}</span>
-				</a>
-			{/each}
-		</nav>
+			<nav class="nav" aria-label="Primary">
+				{#each nav as item (item.href)}
+					<a
+						class="nav-link"
+						class:active={isActive(item.href)}
+						aria-current={isActive(item.href) ? 'page' : undefined}
+						aria-label={item.label}
+						href={resolve(item.href)}
+					>
+						<span class="nav-code" aria-hidden="true">//:</span>
+						<span class="nav-label">{item.codeLabel}</span>
+					</a>
+				{/each}
+			</nav>
 		</div>
 	</header>
 
@@ -139,23 +141,36 @@
 		box-sizing: border-box;
 		line-height: 1;
 		border: 1px solid transparent; /* keeps sizing consistent */
+		font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New',
+			monospace;
+		letter-spacing: 0.1px;
 	}
 
-	.nav-link:hover {
-		color: var(--text);
+	.nav-code {
+		color: rgba(255, 255, 255, 0.42);
+		margin-right: 0.15rem;
 	}
 
-	/* Active page (this is the pill) */
-	.nav-link.active {
-		color: var(--text);
-		background: rgba(124, 58, 237, 0.18);
-		border-color: rgba(124, 58, 237, 0.35);
+	.nav-link:hover .nav-code,
+	.nav-link.active .nav-code {
+		color: rgba(255, 255, 255, 0.7);
 	}
 
-	/* Nudge only the text slightly (pill stays put) */
+	.nav-link.active .nav-code,
 	.nav-link.active .nav-label {
 		display: inline-block;
 		transform: translateY(-1.4px);
+	}
+
+	.nav-link.active .nav-label::after {
+		content: '▍';
+		margin-left: 0.15rem;
+		opacity: 0.85;
+		animation: caret 1.1s steps(1, end) infinite;
+	}
+
+	@keyframes caret {
+		50% { opacity: 0; }
 	}
 
 	.main {
